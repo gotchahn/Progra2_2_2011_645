@@ -16,7 +16,7 @@ public class Via {
         m[0] = new Auto(123);
         m[1] = new Avion(12);
         m[2] = new Barco();
-
+    
         for( MedioTransporte me : m ){
             me.moverse();
         }

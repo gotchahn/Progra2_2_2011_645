@@ -17,25 +17,24 @@ public class TestTryCatch {
         Scanner lea = new Scanner(System.in);
         int vals[] = {1,2,3};
         Random r = null;
-        r.nextFloat();
+      //  r.nextFloat();
+
         try{
             //r.nextInt();
             System.out.println("Aqui empieza el bloque TRY");
-            vals[0] = lea.nextInt();
+            vals[8] = lea.nextInt();
             System.out.println("Aqui termina el bloque TRY");
         }
-        catch(ArrayIndexOutOfBoundsException eb){
-            System.out.println("Invalido rango en el arreglo");
+        catch(ArrayIndexOutOfBoundsException ai ){
+                System.out.println("Por favor utilize una posicion valida del arreglo");
+                System.out.println("Pos: " + ai.getMessage());
+                ai.printStackTrace();
         }
-       catch(Exception e){
+        catch(Exception e){
             System.out.println("Aqui empieza el bloque CATCH");
-            System.out.println("Msg: " + e.getMessage());
-            System.out.println("Error no identificado");
-            e.printStackTrace();
+            System.out.println("ERROR!!!!");
         }
-        finally{
-            System.out.println("Codigo del finally");
-        }
+        
 
         System.out.println("Aqui sigue el programa");
     }

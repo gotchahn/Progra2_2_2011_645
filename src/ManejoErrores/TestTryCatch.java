@@ -19,7 +19,9 @@ public class TestTryCatch {
         Random r = null;
       //  r.nextFloat();
 
+        
         try{
+            foo();
             //r.nextInt();
             System.out.println("Aqui empieza el bloque TRY");
             vals[8] = lea.nextInt();
@@ -31,11 +33,18 @@ public class TestTryCatch {
                 ai.printStackTrace();
         }
         catch(Exception e){
-            System.out.println("Aqui empieza el bloque CATCH");
-            System.out.println("ERROR!!!!");
+            System.out.println("Error: " + e.getMessage());
+        }
+        finally{
+            for(int x=0;x<5;x++)
+                System.out.println("wojoo");
         }
         
 
         System.out.println("Aqui sigue el programa");
+    }
+
+    private static void foo() {
+        throw new UnsupportedOperationException("Joel esta dormido");
     }
 }

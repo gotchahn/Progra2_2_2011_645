@@ -17,14 +17,12 @@ public class TestTryCatch {
         Scanner lea = new Scanner(System.in);
         int vals[] = {1,2,3};
         Random r = null;
-      //  r.nextFloat();
-
-        
+        //r.nextFloat();
         try{
-            foo();
+            //foo();
             //r.nextInt();
             System.out.println("Aqui empieza el bloque TRY");
-            vals[8] = lea.nextInt();
+            vals[0] = lea.nextInt();
             System.out.println("Aqui termina el bloque TRY");
         }
         catch(ArrayIndexOutOfBoundsException ai ){
@@ -36,7 +34,13 @@ public class TestTryCatch {
             System.out.println("Error: " + e.getMessage());
         }
         finally{
-            for(int x=0;x<5;x++)
+            try{
+                r.nextFloat();
+            }
+            catch(Exception e){
+                System.out.println("Otro Error?");
+            }
+                for(int x=0;x<5;x++)
                 System.out.println("wojoo");
         }
         
@@ -44,7 +48,7 @@ public class TestTryCatch {
         System.out.println("Aqui sigue el programa");
     }
 
-    private static void foo() {
+    private static int foo() {
         throw new UnsupportedOperationException("Joel esta dormido");
     }
 }

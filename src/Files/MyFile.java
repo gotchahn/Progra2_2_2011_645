@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package Files;
+//package Files;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +45,6 @@ public class MyFile {
                     System.out.println("Es un Archivo");
                 if( f.isDirectory())
                     System.out.println("Es un Directorio");
-
                 System.out.println("Mide: " + f.length() );
 
                 System.out.println("GetName: " + f.getName() );

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package Files;
+//package Files;
 
 import java.io.File;
 import java.util.Scanner;

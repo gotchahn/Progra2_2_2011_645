@@ -46,8 +46,9 @@ public class TestFile {
                     mf.DirCommand();
                     break;
                 case 7:
-                    //TODO usar renameTo para renombrer
-                    //o mover archivos
+                    System.out.println("Ingrese la nueva direccion: ");
+                    String nueva = lea.next();
+                    mf.renameMove(nueva);
                     break;
                 default:
                     break;
@@ -67,6 +68,7 @@ public class TestFile {
         System.out.println("4- Crear Directorios");
         System.out.println("5- Borrar Archivo o Dir");
         System.out.println("6- Listar todo");
+        System.out.println("7- Renombrar o Mover");
         System.out.println("\nEscoja Opcion: ");
         return lea.nextInt();
     }

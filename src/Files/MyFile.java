@@ -91,26 +91,26 @@ public class MyFile {
                 int cf = 0, cd = 0;
                 long tb = 0;
                 
-                for( File f : files ){
+                for( File fi : files ){
                     //fecha de modif
-                    Date modif = new Date( f.lastModified() );
+                    Date modif = new Date( fi.lastModified() );
                     System.out.print(modif.toString() + "   ");
 
                     //ver si es dir o file
-                    if( f.isDirectory() ){
+                    if( fi.isDirectory() ){
                         System.out.print("<DIR>    ");
                         cd++;
                     }
 
                     //size
-                    if( f.isFile()  ){
-                        System.out.print( f.length()+ "   ");
+                    if( fi.isFile()  ){
+                        System.out.print( fi.length()+ "   ");
                         cf++;
-                        tb += f.length();
+                        tb += fi.length();
                     }
 
                     //nombre
-                    System.out.println(f.getName());
+                    System.out.println(fi.getName());
                 }
 
                 System.out.println("(" + cd + ") dirs");
@@ -119,6 +119,24 @@ public class MyFile {
             }
             else
                 System.out.println("No existe o no es directorio");
+        }
+        catch(NullPointerException n){
+            System.out.println("Instancie primero el objeto File");
+        }
+    }
+    
+    public void renameMove(String newPath){
+        try{
+            File nuevo = new File(newPath);
+            
+            if( f.renameTo(nuevo) ){
+                System.out.println("Se pudo modificar");
+                this.setFile(newPath);
+            }
+            else
+                System.out.println("No se pudo modificar");
+            
+            System.out.println("COntrolo: " + f.getName());
         }
         catch(NullPointerException n){
             System.out.println("Instancie primero el objeto File");

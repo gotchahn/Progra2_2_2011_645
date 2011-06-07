@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package VideoStore;
+//package VideoStore;
 
 import java.io.*;
 import java.util.Date;
@@ -19,12 +19,18 @@ public class DvdFilesControl {
     public double precioNormal,precioEstreno;
     Scanner lea = new Scanner(System.in);
         
-    public DvdFilesControl(String name,double pn,double pe)throws IOException{
+    public DvdFilesControl(String name,double pn,double pe){
         nameStore = name;
         precioNormal = pn;
         precioEstreno = pe;
-        ram = new RandomAccessFile("dvds.vid","rw");
-        rtran = new RandomAccessFile("transacciones.vid","rw");
+        
+        try{
+            ram = new RandomAccessFile("dvds.vid","rw");
+            rtran = new RandomAccessFile("transacciones.vid","rw");
+        }
+        catch(Exception e){
+            System.out.println("Error: " + e.getMessage());
+        }
     }
     
     /**
@@ -140,11 +146,35 @@ public class DvdFilesControl {
         
     }
     
+    public void devolverDvd(int cont)throws IOException{
+        long pos = this.busqueda(cont);
+        
+        if( pos > 0 ){
+            //lo encontre!
+            String dvd = ram.readUTF();
+            int copias = ram.readInt();
+            
+            //actualizar copias + 1
+            ram.seek( ram.getFilePointer() - 4 );
+            ram.writeInt(copias + 1);
+            
+            System.out.println("Gracias por devolver el DVD de " + dvd);
+        }
+        else
+            System.out.println("DVD no existe");
+    }
     
+    public void imprimir( )throws IOException{
+        ram.seek(0);
+        
+        while( ram.getFilePointer() < ram.length() ){
+            System.out.println( ram.readInt() + " - " + ram.readUTF() + " - " +
+                    ram.readInt() + " copias - " + 
+                    (ram.readBoolean() ? " Estreno - " : "Normal - ") + 
+                    (new Date( ram.readLong())).toString() );
+        }
+    }
     
-    
-    
-    
-    
+       
     
 }

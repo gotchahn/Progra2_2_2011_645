@@ -17,7 +17,9 @@ public class CarRent {
             System.out.println("Menu principal\n-----");
             System.out.println("1- Agregar Auto");
             System.out.println("2- Imprimir Disponibles");
-            System.out.println("3- Salir");
+            System.out.println("3- Rentar Auto");
+            System.out.println("4- Imprimir Transacciones hechas");
+            System.out.println("5- Salir");
             System.out.println("\nEscoja opcion: ");
             op = FilesControl.lea.nextInt();
             
@@ -29,12 +31,20 @@ public class CarRent {
                     case 2:
                         fc.imprimirDispos();
                         break;
+                    case 3:
+                        System.out.println("Ingrese Placa: ");
+                        String placa = FilesControl.lea.next();
+                        fc.rentarAuto(placa);
+                        break;
+                    case 4:
+                        fc.imprimiTrans();
+                        break;
                 }
             }
             catch(Exception e){
                 System.out.println("Error: " + e.getMessage());
             }
             
-        }while( op != 3 );
+        }while( op != 5 );
     }
 }

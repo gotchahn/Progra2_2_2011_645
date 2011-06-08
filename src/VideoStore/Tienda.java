@@ -4,6 +4,7 @@
  */
 //package VideoStore;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 /**
@@ -25,7 +26,9 @@ public class Tienda {
                System.out.println("2- Rentar Dvd");
                System.out.println("3- Devolver Dvd");
                System.out.println("4- Imprimir All");
-               System.out.println("5- Salir");
+               System.out.println("5- Pasar a Normal");
+               System.out.println("6- Mirar Transacciones");
+               System.out.println("7- Salir");
                System.out.println("\nEscoja opcion: ");
                op = lea.nextInt();
                
@@ -47,11 +50,26 @@ public class Tienda {
                        case 4:
                            dfc.imprimir();
                            break;
+                       case 5:
+                           Calendar c = Calendar.getInstance();
+                           System.out.println("Anio: ");
+                           int anio = lea.nextInt();
+                           System.out.println("Mes: ");
+                           int mes = lea.nextInt();
+                           System.out.println("Dia: ");
+                           int dia = lea.nextInt();
+                           c.set(anio, mes - 1, dia);
+                           
+                           dfc.pasarNormal( c.getTime() );
+                           break;
+                       case 6:
+                           dfc.imprimirTrans();
+                           break;
                    }
                }
                catch(Exception e){
                    System.out.println("Error: " + e.getMessage());
                }
-           }while( op != 5);
+           }while( op != 7);
     }
 }

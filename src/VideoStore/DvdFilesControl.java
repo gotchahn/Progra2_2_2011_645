@@ -175,6 +175,45 @@ public class DvdFilesControl {
         }
     }
     
+    public void imprimirTrans()throws Exception{
+        rtran.seek(0);
+        
+        while( rtran.getFilePointer() < rtran.length() ){
+            Date d = new Date( rtran.readLong());
+            int dvd = rtran.readInt();
+            double monto = rtran.readDouble();
+            String cliente = rtran.readUTF();
+            
+            System.out.println(d.toString() + " - " + 
+                    dvd + " - L." + monto + " Cliente: " +
+                    cliente);
+        }
+    }
+    
+    public void pasarNormal(Date tope)throws Exception{
+        
+        if( tope == null )
+            throw new Exception("Mandar Fecha Correcta");
+        
+        ram.seek(0);
+        
+        while( ram.getFilePointer() < ram.length() ){
+            ram.readInt();
+            ram.readUTF();
+            ram.readInt();
+            long pos = ram.getFilePointer();
+            boolean nuevo = ram.readBoolean();
+            long inicial = ram.readLong();
+            
+            if( nuevo && inicial <= tope.getTime() ){
+                ram.seek(pos);
+                ram.writeBoolean(false);
+                ram.readLong();
+            }
+        }
+        
+    }
+    
        
     
 }

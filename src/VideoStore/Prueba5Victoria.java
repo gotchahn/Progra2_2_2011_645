@@ -1,6 +1,3 @@
-
-import java.io.IOException;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -8,12 +5,14 @@ import java.io.IOException;
 
 //package VideoStore;
 
+import java.io.IOException;
+
 /**
  *
  * @author ViCoOo
  */
 public class Prueba5Victoria {
-    public static String descripcion;
+       public static String descripcion;
 
     public static String getOpcion(){
         descripcion="Reporte de dvd's mas rentados";
@@ -38,6 +37,5 @@ public class Prueba5Victoria {
             dfc.rtran.readUTF();
         }
     }
-
 
 }

@@ -28,7 +28,12 @@ public class Tienda {
                System.out.println("4- Imprimir All");
                System.out.println("5- Pasar a Normal");
                System.out.println("6- Mirar Transacciones");
-               System.out.println("7- Salir");
+               System.out.println("7-" + Prueba5Guillermo.getOpcion());
+               System.out.println("8-" + Prueba5Victoria.getOpcion());
+               System.out.println("9-" + Prueba5Erick.getOpcion());
+               System.out.println("10-" + Prueba5Dennis.getOpcion());
+               System.out.println("11-" + Prueba5Carlos.getOpcion());
+               System.out.println("12- Salir");
                System.out.println("\nEscoja opcion: ");
                op = lea.nextInt();
                
@@ -65,11 +70,26 @@ public class Tienda {
                        case 6:
                            dfc.imprimirTrans();
                            break;
+                       case 7:
+                           Prueba5Guillermo.funcion(dfc);
+                           break;
+                       case 8:
+                           Prueba5Victoria.funcion(dfc);
+                           break;
+                       case 9:
+                           Prueba5Erick.funcion(dfc);
+                           break;
+                       case 10:
+                           Prueba5Dennis.funcion(dfc);
+                           break;
+                       case 11:
+                           Prueba5Carlos.funcion(dfc);
+                           break;
                    }
                }
                catch(Exception e){
                    System.out.println("Error: " + e.getMessage());
                }
-           }while( op != 7);
+           }while( op != 12);
     }
 }

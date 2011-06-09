@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-//package VideoStore;
+package VideoStore;
 
 import java.io.*;
 import java.util.Date;
@@ -212,6 +212,15 @@ public class DvdFilesControl {
             }
         }
         
+    }
+
+    public void RegistrarCopiasNuevas(int codigo, int copiasnuevas)throws IOException{
+        long posicion = this.busqueda(codigo);
+           if(posicion > 0){
+             int copiasactuales = ram.readInt();
+           } else {
+            System.out.println("El codigo del dvd no existe");
+           }
     }
     
        

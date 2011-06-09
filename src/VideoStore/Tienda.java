@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-//package VideoStore;
+package VideoStore;
 
 import java.util.Calendar;
 import java.util.Scanner;
@@ -28,9 +28,12 @@ public class Tienda {
                System.out.println("4- Imprimir All");
                System.out.println("5- Pasar a Normal");
                System.out.println("6- Mirar Transacciones");
-               System.out.println("7- Salir");
+               System.out.println("7- Dennis");
+               System.out.println("8- Salir");
                System.out.println("\nEscoja opcion: ");
                op = lea.nextInt();
+               Prueba5Dennis dennis = new Prueba5Dennis();
+            
                
                try{
                    switch( op ){
@@ -65,11 +68,14 @@ public class Tienda {
                        case 6:
                            dfc.imprimirTrans();
                            break;
+                       case 7:
+                              dennis.funcion(dfc);
+
                    }
                }
                catch(Exception e){
                    System.out.println("Error: " + e.getMessage());
                }
-           }while( op != 7);
+           }while( op != 8);
     }
 }

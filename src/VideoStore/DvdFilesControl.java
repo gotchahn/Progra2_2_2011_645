@@ -13,8 +13,8 @@ import java.util.Scanner;
  * @author Gotcha
  */
 public class DvdFilesControl {
-    private RandomAccessFile ram = null;
-    private RandomAccessFile rtran = null;
+    public RandomAccessFile ram = null;
+    public RandomAccessFile rtran = null;
     public String nameStore;
     public double precioNormal,precioEstreno;
     Scanner lea = new Scanner(System.in);

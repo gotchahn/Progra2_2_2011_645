@@ -166,4 +166,83 @@ public class FilesControl {
                     (rtrans.readBoolean() ? "Pagado" : "Por Pagar"));
         }
     }
+
+    private void ponerDisponible(String placa)throws IOException{
+        if( this.buscarCarro(placa) ){
+            rautos.readUTF();
+            rautos.readInt();
+            rautos.readBoolean();
+            rautos.writeBoolean(true); 
+        }
+        else{
+            System.out.println("AUTO NO ENCONTRADO");
+        }
+    }
+
+    public boolean buscarFactura(int cod)throws IOException{
+        rtrans.seek(0);
+
+        while( rtrans.getFilePointer() < rtrans.length() ){
+            if( cod == rtrans.readInt() )
+                return true;
+            else{
+                //pasar fecha y dias
+                rtrans.seek( rtrans.getFilePointer() + 12 );
+                rtrans.readUTF();
+                //pasar monto y pagado
+                rtrans.seek( rtrans.getFilePointer() + 9 );
+            }
+        }
+        return false;
+    }
+
+    public void entregarAuto(int factura)throws IOException{
+        if( buscarFactura( factura ) ){
+            long fecha = rtrans.readLong();
+            int dias = rtrans.readInt();
+            String placa = rtrans.readUTF();
+            double monto = rtrans.readDouble();
+            //poner disponible el carro
+            this.ponerDisponible(placa);
+            //verificar monto a pagar
+            double recargo = verRecargo(fecha,dias);
+
+            if( recargo > 0 ){
+                //hay recargo papa!
+                System.out.println("Recargo a Pagar: " + recargo);
+                rtrans.seek( rtrans.getFilePointer() - 8 );
+                rtrans.writeDouble( monto + recargo );
+            }
+            
+            rtrans.writeBoolean(true);
+            
+        }
+        else{
+            System.out.println("Factura " + factura +
+                    " No esta registrada\n");
+        }
+    }
+
+    private double verRecargo(long fecha, int dias) {
+        //ahorita
+        Date d = new Date();
+        //la fecha con que lo saco
+        Date s = new Date( fecha );
+        //diferencia de tiempo
+        double diff = d.getTime() - s.getTime();
+        //pasemos eso a dia
+        double diasReal = diff / ( 1000*60*60*24 );
+        System.out.println("Dias llevado: " + diasReal);
+
+        if( diasReal > dias ){
+            //se cobra $20 x dia de recargo
+            return 20 * ( diasReal - dias );
+        }
+        
+        return 0;
+    }
 }
+
+
+
+

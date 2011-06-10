@@ -14,8 +14,8 @@ import java.util.Scanner;
  * @author Gotcha
  */
 public class FilesControl {
-    private RandomAccessFile rautos;
-    private RandomAccessFile rtrans;
+    public RandomAccessFile rautos;
+    public RandomAccessFile rtrans;
     public static Scanner lea = new Scanner(System.in);
     double pxdn; //precio por dia nuevo
     double pxdv; //precio por dia viejo

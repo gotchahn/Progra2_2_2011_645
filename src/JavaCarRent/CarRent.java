@@ -20,10 +20,10 @@ public class CarRent {
             System.out.println("3- Rentar Auto");
             System.out.println("4- Imprimir Transacciones hechas");
             System.out.println("5- Entregar Auto");
-            System.out.println("6-" + Prueba5Daniel.getOpcion());
+           // System.out.println("6-" + Prueba5Daniel.getOpcion());
             System.out.println("7-" + Prueba5Manuel.getOpcion());
             System.out.println("8-" + Prueba5David.getOpcion());
-            System.out.println("9-" + Prueba5Carlos.getOpcion());
+         //   System.out.println("9-" + Prueba5Carlos.getOpcion());
             System.out.println("10- Salir");
             System.out.println("\nEscoja opcion: ");
             op = FilesControl.lea.nextInt();
@@ -50,7 +50,7 @@ public class CarRent {
                         fc.entregarAuto(fact);
                         break;
                     case 6:
-                        Prueba5Daniel.funcion(fc);
+                      //  Prueba5Daniel.funcion(fc);
                         break;
                      case 7:
                         Prueba5Manuel.funcion(fc);
@@ -59,7 +59,7 @@ public class CarRent {
                         Prueba5David.funcion(fc);
                         break;
                      case 9:
-                        Prueba5Carlos.funcion(fc);
+                     //   Prueba5Carlos.funcion(fc);
                         break;
                 }
             }

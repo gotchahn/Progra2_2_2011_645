@@ -32,7 +32,7 @@ public class Tienda {
                System.out.println("8-" + Prueba5Victoria.getOpcion());
                System.out.println("9-" + Prueba5Erick.getOpcion());
                System.out.println("10-" + Prueba5Dennis.getOpcion());
-               System.out.println("11-" + Prueba5Carlos.getOpcion());
+             //  System.out.println("11-" + Prueba5Carlos.getOpcion());
                System.out.println("12- Salir");
                System.out.println("\nEscoja opcion: ");
                op = lea.nextInt();
@@ -83,7 +83,7 @@ public class Tienda {
                            Prueba5Dennis.funcion(dfc);
                            break;
                        case 11:
-                           Prueba5Carlos.funcion(dfc);
+                         //  Prueba5Carlos.funcion(dfc);
                            break;
                    }
                }
